@@ -6,7 +6,7 @@ import productImg2 from "../../assets/images/img-1/product-2.webp";
 import newImg1 from "../../assets/images/webp/ChkokkoWomenNavyBlueColourblockedSportyJacket1.webp";
 import newImg2 from "../../assets/images/webp/Leather-Retail-Women-Jackets-pink.webp";
 import newImg3 from "../../assets/images/webp/navy-green-jacket.jpg";
-
+import { Link } from "react-router-dom";
 export default function landingPage() {
   return (
     <>
@@ -22,7 +22,9 @@ export default function landingPage() {
         >
           <div className="banner1">
             <h1 className="banner-title1">women wear collection</h1>
+            <Link to="/products">
             <button className="banner-btn1 cursor-pointer">shop now</button>
+            </Link>
           </div>
         </div>
       </header>

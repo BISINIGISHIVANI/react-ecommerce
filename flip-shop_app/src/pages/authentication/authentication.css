@@ -15,12 +15,16 @@
   body {
     font-family: "Lato", sans-serif;
   }
+  .docnav-bar {
+    position: relative;
+  }
   /* login  */
   .loginbox-align {
-    position: absolute;
+    position: relative;
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-15%);
+    margin: 2rem 0;
   }
   .login-box {
     width: 25rem;
