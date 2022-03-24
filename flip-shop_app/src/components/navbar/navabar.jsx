@@ -1,4 +1,4 @@
-import "./navbar.css";
+import "./navabar.css";
 export default function NavBar() {
   return (
     <nav className="docnav-bar flex-center">
