@@ -15,24 +15,6 @@
   body {
     font-family: "Lato", sans-serif;
   }
-  .docnav-bar {
-    position: relative;
-  }
-  /* login  */
-  .loginbox-align {
-    position: relative;
-    top: 55%;
-    left: 50%;
-    transform: translate(-15%);
-    margin: 2rem 0;
-  }
-  .login-box {
-    width: 25rem;
-    background: var(--main-bg);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-  }
   
   .login-box h2 {
     padding-bottom: 1.3rem;

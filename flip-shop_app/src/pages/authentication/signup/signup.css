@@ -1,18 +1,13 @@
-.loginbox-align {
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .login-box {
-    width: 25rem;
-    padding: 2rem;
-    background: var(--main-bg);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-  }
-  
+.login-box {
+  width: 25rem;
+  padding: 2rem;
+  background: var(--main-bg);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: 2rem auto;
+}
+
   .login-box h2 {
     color: #fff;
     text-align: center;
