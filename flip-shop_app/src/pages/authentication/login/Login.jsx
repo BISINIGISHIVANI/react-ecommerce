@@ -1,4 +1,5 @@
 import "../authentication.css";
+import { Link } from "react-router-dom";
 export default function loginPage() {
   return (
     <div className="loginbox-align">
@@ -19,14 +20,18 @@ export default function loginPage() {
                 <input type="checkbox" name="remember-me" />
                 <label for="remember-me">Remember me</label>
               </div>
+              <Link to="/forgot-password">
               <div className="forgot-pwd">
                 <span className="forgot-label">forgot password ?</span>
               </div>
+              </Link>
             </div>
             <button type="submit" className="login-submit">
               Login
             </button>
+            <Link to="/signup">
             <button className="create-account">Create New Account </button>
+            </Link>
           </div>
         </form>
       </div>

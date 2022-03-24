@@ -1,4 +1,5 @@
 import "../authentication.css";
+import { Link } from "react-router-dom";
 export default function ForgotPage() {
   return (
     <div className="loginbox-align">
@@ -19,9 +20,11 @@ export default function ForgotPage() {
           </div>
           <div className="password-box">
             <button type="submit" className="login-submit">
-              Login
+              submit
             </button>
+            <Link to="/signup">
             <button className="create-account">Create New Account </button>
+            </Link>
           </div>
         </form>
       </div>

@@ -1,4 +1,5 @@
 import "./signup.css";
+import { Link } from "react-router-dom";
 export default function SignupPage() {
   return (
     <div className="loginbox-align">
@@ -26,7 +27,9 @@ export default function SignupPage() {
           <button type="submit" className="signup-btn">
             SignUp
           </button>
+          <Link to="/login">
           <button className="already-account">Already have an account </button>
+          </Link>
         </form>
       </div>
     </div>
