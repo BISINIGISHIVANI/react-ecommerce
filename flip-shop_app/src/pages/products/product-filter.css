@@ -1,0 +1,80 @@
+/* filter  */
+.filter-page {
+    display: flex;
+    flex-direction: row;
+  }
+  .filter-product-container {
+    border: 1px solid black;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .filter-container {
+    width: 15rem;
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+    padding: 0 1rem;
+  }
+  
+  /* Filter Section Styling */
+  .filter-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+  }
+  .filter-title .clear-btn {
+    border: none;
+    outline: none;
+    color: grey;
+    background: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .filter-type {
+    margin: 1rem 0;
+  }
+  
+  .filter-type-container {
+    margin: 0.5rem 0;
+  }
+  
+  .filter-type-container .slider {
+    margin-top: 5px;
+  }
+  
+  .filter-type-container label {
+    margin-left: 5px;
+  }
+  
+  .filter-type .slider {
+    width: 100%;
+  }
+  /* Media Queries */
+  @media screen and (max-width: 800px) {
+    .filter-container {
+      width: 8rem;
+    }
+    .section-title h2 {
+      font-size: 1.8rem;
+    }
+    /* .products .product,
+    .section-title h2 {
+      width: 48vw;
+    } */
+    .filter-page .img-container {
+      max-width: fit-content;
+    }
+    .bag-btn,
+    .bag-btn2 {
+      padding: 0.2rem;
+      top: 90%;
+      letter-spacing: none;
+    }
+    .product .bag-wishlist {
+      letter-spacing: normal;
+    }
+  }
+  
