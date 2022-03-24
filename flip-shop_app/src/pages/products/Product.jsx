@@ -1,8 +1,8 @@
 import "./product-filter.css";
-// import { products } from "../../data";
-import { productImg1, productImg2 } from "../../assets/images/photos";
 import { ProductsList } from "./components/product-all";
 import { Productfilter } from "./components/product-filter";
+// import {products} from '../../backend/db/products';
+// import {}
 export default function ProductWithFilter() {
   return (
     <div className="filter-page">
@@ -14,42 +14,23 @@ export default function ProductWithFilter() {
           <h2>our products</h2>
         </div>
         <div className="products-center">
-          <ProductsList
-            productFilterImg={productImg1}
+          {products.map(({ _id,
+    name,
+    subtitle,
+    rating,
+    price,
+    discount,
+    image})=>{
+            <ProductsList
+            productFilterImg={image}
             imgAlt={"product"}
-            title={"Mast & Harbour"}
-            productSubtitle={"Women Blue Solid Bomber Jacket"}
-            starRating={"4"}
-            productPrice={"2699"}
-            productDiscount={"55%"}
+            title={name}
+            productSubtitle={subtitle}
+            starRating={rating}
+            productPrice={price}
+            productDiscount={discount}
           />
-          <ProductsList
-            productFilterImg={productImg2}
-            imgAlt={"product"}
-            title={"Mast & Harbour"}
-            productSubtitle={"Women yellow Solid Bomber Jacket"}
-            starRating={"3.5"}
-            productPrice={"2799"}
-            productDiscount={"40%"}
-          />
-          <ProductsList
-            productFilterImg={productImg2}
-            imgAlt={"product"}
-            title={"Mast & Harbour"}
-            productSubtitle={"Women yellow Solid Bomber Jacket"}
-            starRating={"3.5"}
-            productPrice={"2799"}
-            productDiscount={"40%"}
-          />
-          <ProductsList
-            productFilterImg={productImg2}
-            imgAlt={"product"}
-            title={"Mast & Harbour"}
-            productSubtitle={"Women yellow Solid Bomber Jacket"}
-            starRating={"3.5"}
-            productPrice={"2799"}
-            productDiscount={"40%"}
-          />
+          })}
         </div>
       </section>
     </div>
