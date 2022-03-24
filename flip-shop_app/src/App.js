@@ -5,8 +5,8 @@ import NavBar from "./components/navbar/navabar";
 function App() {
   return (
     <div className="App">
-      <NavBar/>
-      <LandingPage/>
+      <Navbar/>
+      <ProductWithFilter/>
     </div>
   );
 }
