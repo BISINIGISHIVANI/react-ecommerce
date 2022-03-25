@@ -33,7 +33,7 @@ export const products = [
     rating: "4",
     price: "2699",
     discount: "55%",
-    image: { productImg1 }
+    image:  productImg1 
   },
   {
     _id:uuid(),
@@ -43,7 +43,7 @@ export const products = [
     rating: "3.5",
     price: "2799",
     discount: "40%",
-    image: { productImg2 }
+    image:  productImg2 
   },
   {
     _id:uuid(),
@@ -53,7 +53,7 @@ export const products = [
     rating: "4",
     price: "4699",
     discount: "10%",
-    image: { newImg1 }
+    image: newImg1 
   },
   {
     _id:uuid(),
@@ -63,7 +63,7 @@ export const products = [
     rating: "4.5",
     price: "2999",
     discount: "30%",
-    image: { newImg2 }
+    image:  newImg2 
   },
   {
     _id:uuid(),
@@ -73,7 +73,7 @@ export const products = [
     rating: "5",
     price: "5699",
     discount: "20%",
-    image: { newImg3 }
+    image:  newImg3 
   },
   {
     _id:uuid(),
@@ -83,7 +83,7 @@ export const products = [
     rating: "3",
     price: "4500",
     discount: "20%",
-    image: { newImg4 }
+    image:  newImg4 
   },
   {
     _id:uuid(),
@@ -93,7 +93,7 @@ export const products = [
     rating: "1.5",
     price: "7699",
     discount: "40%",
-    image: { newImg5 }
+    image:  newImg5 
   },
   {
     _id:uuid(),
@@ -103,7 +103,7 @@ export const products = [
     rating: "2",
     price: "3999",
     discount: "34%",
-    image: { newImg6 }
+    image:  newImg6 
   },
   {
     _id:uuid(),
@@ -113,7 +113,7 @@ export const products = [
     rating: "2.5",
     price: "3899",
     discount: "25%",
-    image: { trendyImg1 }
+    image:  trendyImg1 
   },
   {
     _id:uuid(),
@@ -123,7 +123,7 @@ export const products = [
     rating: "4.5",
     price: "3499",
     discount: "30%",
-    image: { trendyImg2 }
+    image:  trendyImg2 
   },
   {
     _id:uuid(),
@@ -133,7 +133,7 @@ export const products = [
     rating: "4",
     price: "9999",
     discount: "40%",
-    image: { trendyImg3 }
+    image:  trendyImg3 
   },
   {
     _id:uuid(),
@@ -143,7 +143,7 @@ export const products = [
     rating: "3.5",
     price: "5799",
     discount: "70%",
-    image: { trendyImg4 }
+    image: trendyImg4 
   },
   {
     _id:uuid(),
@@ -153,7 +153,7 @@ export const products = [
     rating: "3.6",
     price: "3499",
     discount: "60%",
-    image: { trendyImg5 }
+    image:  trendyImg5 
   },
   {
     _id:uuid(),
@@ -163,7 +163,7 @@ export const products = [
     rating: "5",
     price: "2800",
     discount: "45%",
-    image: { trendyImg6 }
+    image:  trendyImg6 
   },
   {
     _id:uuid(),
@@ -173,7 +173,7 @@ export const products = [
     rating: "4",
     price: "3599",
     discount: "30%",
-    image: { trendyImg7 }
+    image:  trendyImg7 
   },
   {
     _id:uuid() ,
@@ -183,7 +183,7 @@ export const products = [
     rating: "4.5",
     price: "9999",
     discount: "80%",
-    image: { trendyImg8 }
+    image:  trendyImg8 
   },
   {
     _id:uuid(),
@@ -193,7 +193,7 @@ export const products = [
     rating: "4",
     price: "8999",
     discount: "55%",
-    image: { trendyImg9 }
+    image:  trendyImg9 
   },
   {
     _id:uuid(),
@@ -203,6 +203,6 @@ export const products = [
     rating: "5",
     price: "1200",
     discount: "30%",
-    image: { trendyImg10 }
+    image:  trendyImg10 
   },
 ];
