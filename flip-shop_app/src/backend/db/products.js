@@ -23,7 +23,7 @@ import { v4 as uuid } from "uuid";
   trendyImg8,
   trendyImg9,
   trendyImg10
-} from "../../assets/images/photos";
+} from '../../assets/images/photos';
 export const products = [
   {
     _id:uuid(),

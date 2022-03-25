@@ -1,9 +1,23 @@
 import "./product-filter.css";
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
 import { ProductsList } from "./components/product-all";
 import { Productfilter } from "./components/product-filter";
-// import {products} from '../../backend/db/products';
-// import {}
+
 export default function ProductWithFilter() {
+  const [productData, setProductData] = useState([]);
+  useEffect(() => {
+    (async function () {
+      try {
+        await axios.get("/api/products").then((res) => {
+          setProductData(res.data.products);
+        });
+      } catch (error) {
+        console.error(error);
+        setProductData("failed do fetch data", error);
+      }
+    })();
+  },[]);
   return (
     <div className="filter-page">
       <section className="filter-product-container">
@@ -14,14 +28,13 @@ export default function ProductWithFilter() {
           <h2>our products</h2>
         </div>
         <div className="products-center">
-          {products.map(({ _id,
-    name,
-    subtitle,
+          {productData.map(({ _id,image,name,subtitle,
     rating,
     price,
     discount,
-    image})=>{
-            <ProductsList
+    })=>(
+      <ProductsList
+            key={_id}
             productFilterImg={image}
             imgAlt={"product"}
             title={name}
@@ -30,7 +43,7 @@ export default function ProductWithFilter() {
             productPrice={price}
             productDiscount={discount}
           />
-          })}
+    ))}
         </div>
       </section>
     </div>
