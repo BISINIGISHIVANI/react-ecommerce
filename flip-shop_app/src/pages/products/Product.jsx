@@ -16,7 +16,6 @@ export default function ProductWithFilter() {
           return false;
       } catch (error) {
         console.error(error);
-        setProductData(error);
       }
     })();
   },[]);
