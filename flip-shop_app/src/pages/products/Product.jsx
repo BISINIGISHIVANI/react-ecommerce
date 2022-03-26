@@ -10,10 +10,7 @@ export default function ProductWithFilter() {
     (async function () {
       try {
         const response=await axios.get("/api/products");
-        if (response.status === 200) {
-          return setProductData(response.data.products);
-        }
-          return false;
+        setProductData(response.data.products);
       } catch (error) {
         console.error(error);
       }
