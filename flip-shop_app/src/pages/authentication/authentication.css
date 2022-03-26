@@ -21,7 +21,9 @@
     color: #fff;
     text-align: center;
   }
-  
+  .login-box{
+    height:27rem;
+  }
   .login-box .user-box {
     position: relative;
   }

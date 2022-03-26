@@ -23,11 +23,11 @@ export default function ProductWithFilter() {
       <section className="filter-product-container">
         <Productfilter />
       </section>
-      <section className="products">
+      <section className="products-list">
         <div className="section-title">
           <h2>our products</h2>
         </div>
-        <div className="products-center">
+        <div className="products-middle">
           {productData.map(({ _id,image,name,subtitle,
     rating,
     price,

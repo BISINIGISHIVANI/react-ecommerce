@@ -1,5 +1,6 @@
 .login-box {
   width: 25rem;
+  height: max-content;
   padding: 2rem;
   background: var(--main-bg);
   box-sizing: border-box;
