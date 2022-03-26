@@ -8,7 +8,7 @@ const ProductsList = ({
     productDiscount
   }) => {
     return (
-      <article className="product">
+      <article className="single-product">
         <div className="img-container">
           <img src={productFilterImg} alt={imgAlt} className="product-img" />
           <button className="bag-btn">

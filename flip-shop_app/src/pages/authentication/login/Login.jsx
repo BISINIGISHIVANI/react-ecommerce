@@ -27,6 +27,9 @@ export default function loginPage() {
               </Link>
             </div>
             <button type="submit" className="login-submit">
+            Add Guest credentials
+            </button>
+            <button type="submit" className="login-submit">
               Login
             </button>
             <Link to="/signup">
