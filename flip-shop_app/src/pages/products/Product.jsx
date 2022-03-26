@@ -9,12 +9,14 @@ export default function ProductWithFilter() {
   useEffect(() => {
     (async function () {
       try {
-        await axios.get("/api/products").then((res) => {
-          setProductData(res.data.products);
-        });
+        const response=await axios.get("/api/products");
+        if (response.status === 200) {
+          return setProductData(response.data.products);
+        }
+          return false;
       } catch (error) {
         console.error(error);
-        setProductData("failed do fetch data", error);
+        setProductData(error);
       }
     })();
   },[]);
