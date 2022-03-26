@@ -3,14 +3,27 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { ProductsList } from "./components/product-all";
 import { Productfilter } from "./components/product-filter";
+import { GetFilteredData, GetSortedBy,CategoryFilterData } from "../../../backend/utils/index";
+import { useFillter } from "../../../hooks/context/product-context";
 
 export default function ProductWithFilter() {
   const [productData, setProductData] = useState([]);
+  const [productState,dispatch] = useFillter();
+  const { sortBy, maxPrice, productRating,productDiscount }=productState;
+  const sortedData = GetSortedBy(productData, productState);
+  const filterData = GetFilteredData(sortedData, productState);
+  const includeCategoryData=CategoryFilterData(filterData,productState)
+
   useEffect(() => {
     (async function () {
       try {
         const response=await axios.get("/api/products");
-        setProductData(response.data.products);
+        if(response.status === 200){
+          setProductData(response.data.products);
+      }
+      else{
+          throw new Error();
+      }
       } catch (error) {
         console.error(error);
       }
@@ -26,7 +39,7 @@ export default function ProductWithFilter() {
           <h2>our products</h2>
         </div>
         <div className="products-middle">
-          {productData.map(({ _id,image,name,subtitle,
+          {includeCategoryData.map(({ _id,image,name,subtitle,
     rating,
     price,
     discount,
