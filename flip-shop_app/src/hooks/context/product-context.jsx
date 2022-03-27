@@ -11,10 +11,7 @@ const ProductContext = createContext({
 });
 
 const FilterProvider = ({ children }) => {
-  const [
-    { sortBy, maxPrice, productRating,productDiscount,solidJacket,thinJacket,lightWeightJacket },
-    dispatch
-  ] = useReducer(FilterReducer, {
+  const [productState,dispatch] = useReducer(FilterReducer, {
     sortBy: null,
     maxPrice: 10000,
     productRating: "",
@@ -23,12 +20,7 @@ const FilterProvider = ({ children }) => {
     lightWeightJacket:false
   });
   return (
-    <ProductContext.Provider
-      value={[
-        { sortBy, maxPrice, productRating,productDiscount,solidJacket,thinJacket,lightWeightJacket },
-        dispatch
-      ]}
-    >
+    <ProductContext.Provider value={{productState,dispatch}}>
       {children}
     </ProductContext.Provider>
   );

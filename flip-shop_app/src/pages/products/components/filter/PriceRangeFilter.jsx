@@ -16,3 +16,4 @@ const PriceRangeFilter=({maxPrice,dispatch})=>{
     </div>
   </div>
 }
+export {PriceRangeFilter}

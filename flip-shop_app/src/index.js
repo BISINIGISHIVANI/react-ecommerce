@@ -9,11 +9,11 @@ import { FilterProvider } from "./hooks/context/product-context";
 makeServer();
 ReactDOM.render(
   <React.StrictMode>
-    <FilterProvider>
       <Router>
+        <FilterProvider>
         <App />
+        </FilterProvider>
       </Router>
-    </FilterProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
