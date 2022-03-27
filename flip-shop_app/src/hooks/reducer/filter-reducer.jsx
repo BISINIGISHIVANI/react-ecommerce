@@ -1,26 +1,25 @@
 export const FilterReducer = (productState, action) => {
-  const {sortBy,maxPrice,productRating,productDiscount,solidJacket,thinJacket,lightWeightJacket}=action.payload;
     switch (action.type) {
       case "SORT":
-        return { ...productState, sortBy: sortBy };
+        return { ...productState, sortBy: action.payload };
       case "RANGE":
-        return { ...productState, maxPrice:maxPrice};
+        return { ...productState, maxPrice:action.payload};
       case "RATING":
-        return { ...productState, productRating:  productRating};
+        return { ...productState, productRating: action.payload};
       case "DISCOUNT":
-        return { ...productState, productDiscount: productDiscount };
+        return { ...productState, productDiscount: action.payload};
       case "CATEGORY_SOLID":
-        return{...productState,solidJacket:solidJacket};
+        return{...productState,solidJacket:action.payload};
       case "CATEGORY_THIN":
-        return {...productState,thinJacket:thinJacket};
+        return {...productState,thinJacket:action.payload};
       case "CATEGORY_LIGHTWEIGHT":
-        return {...productState,lightWeightJacket:lightWeightJacket};
+        return {...productState,lightWeightJacket:action.payload};
       case "RESET":
         return {
           sortBy:null,
           maxPrice:10000,
           productRating:1,
-          productDiscount:null,
+          productDiscount:"20%",
           solidJacket:false,
           thinJacket:false,
           lightWeightJacket:false

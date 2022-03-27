@@ -10,11 +10,11 @@ const CategoryFilter=({solidJacket,thinJacket,lightWeightJacket,dispatch})=>{
           e.target.checked
               ? dispatch({
                   type: "CATEGORY_SOLID",
-                  payload: { solidJacket: true }
+                  payload: true
               })
               : dispatch({
                   type: "CATEGORY_SOLID",
-                  payload: { solidJacket: false }
+                  payload: false
               })}
       />
       <label htmlFor="solid-Jacket">Bomber Solid Jacket</label>
@@ -28,11 +28,11 @@ const CategoryFilter=({solidJacket,thinJacket,lightWeightJacket,dispatch})=>{
           e.target.checked
               ? dispatch({
                   type: "CATEGORY_THIN",
-                  payload: { thinJacket: true }
+                  payload: true
               })
               : dispatch({
                   type: "CATEGORY_THIN",
-                  payload: { thinJacket: false }
+                  payload: false
               })}
        />
       <label htmlFor="Thin-Jacket">Bomber Thin Jacket</label>
@@ -46,11 +46,11 @@ const CategoryFilter=({solidJacket,thinJacket,lightWeightJacket,dispatch})=>{
           e.target.checked
               ? dispatch({
                   type: "CATEGORY_LIGHTWEIGHT",
-                  payload: { lightWeightJacket: true }
+                  payload: true
               })
               : dispatch({
                   type: "CATEGORY_LIGHTWEIGHT",
-                  payload: { lightWeightJacket: false }
+                  payload:false
               })}
       />
       <label htmlFor="Lightweight-Jacket">Bomber Light weight Jacket</label>

@@ -1,5 +1,5 @@
 const CategoryFilterData=(data,{solidJacket,thinJacket,lightWeightJacket})=>{
-  if(!solidJacket&& !thinJacket&&lightWeightJacket){
+  if(!solidJacket&& !thinJacket&& !lightWeightJacket){
       return data
   }
   const filterData=[];
