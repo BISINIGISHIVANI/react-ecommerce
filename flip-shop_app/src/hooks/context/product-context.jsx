@@ -3,8 +3,8 @@ import { FilterReducer } from "../reducer/filter-reducer";
 const ProductContext = createContext({
   sortBy: null,
   maxPrice: 1000,
-  productRating: "",
-  productDiscount:"",
+  productRating:null,
+  productDiscount:null,
   solidJacket:false,
   thinJacket:false,
   lightWeightJacket:false
@@ -14,8 +14,8 @@ const FilterProvider = ({ children }) => {
   const [productState,dispatch] = useReducer(FilterReducer, {
     sortBy: null,
     maxPrice: 10000,
-    productRating: "",
-    productDiscount:"",solidJacket:false,
+    productRating:null,
+    productDiscount:null,solidJacket:false,
     thinJacket:false,
     lightWeightJacket:false
   });

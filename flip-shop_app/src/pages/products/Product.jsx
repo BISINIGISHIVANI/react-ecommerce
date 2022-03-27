@@ -9,9 +9,16 @@ import { useFillter } from "../../hooks/context/product-context";
 export default function ProductWithFilter() {
   const [productData, setProductData] = useState([]);
   const {productState} = useFillter();
-  const sortedData = GetSortedBy(productData,productState);
-  const categoryData=CategoryFilterData(sortedData,productState)
-  const filterData = GetFilteredData(categoryData,productState);
+  const {sortBy,
+    maxPrice,
+    productRating,
+    productDiscount,
+    solidJacket,
+    thinJacket,
+    lightWeightJacket}=productState;
+  const sortedData = GetSortedBy(productData,{sortBy});
+  const categoryData=CategoryFilterData(sortedData,{solidJacket,thinJacket,lightWeightJacket})
+  const filterData = GetFilteredData(categoryData,{maxPrice,productRating,productDiscount});
   
 
   useEffect(() => {
@@ -39,10 +46,14 @@ export default function ProductWithFilter() {
           <h2>our products</h2>
         </div>
         <div className="products-middle">
-          {filterData.map(({ _id,image,name,subtitle,
-           rating,
-        price,
-        discount,
+          {filterData.map(({
+             _id,
+             image,
+             name,
+             subtitle,
+             rating,
+             price,
+             discount,
         })=>(
           <ProductsList
             key={_id}

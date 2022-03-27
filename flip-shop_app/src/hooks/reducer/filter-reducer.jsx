@@ -17,10 +17,10 @@ export const FilterReducer = (productState, action) => {
         return {...productState,lightWeightJacket:lightWeightJacket};
       case "RESET":
         return {
-          sortBy:false,
+          sortBy:null,
           maxPrice:10000,
-          productRating:"",
-          productDiscount:"",
+          productRating:null,
+          productDiscount:null,
           solidJacket:false,
           thinJacket:false,
           lightWeightJacket:false
