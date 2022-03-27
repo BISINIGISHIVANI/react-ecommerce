@@ -19,7 +19,7 @@ export const FilterReducer = (productState, action) => {
         return {
           sortBy:null,
           maxPrice:10000,
-          productRating:null,
+          productRating:1,
           productDiscount:null,
           solidJacket:false,
           thinJacket:false,

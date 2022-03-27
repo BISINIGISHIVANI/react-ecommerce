@@ -11,7 +11,7 @@ const PriceRangeFilter=({maxPrice,dispatch})=>{
         value={maxPrice}
         className="slider"
         onChange={(e) =>
-            dispatch({ type: "RANGE", payload: e.target.value })}
+            dispatch({ type: "RANGE", payload:{maxPrice: e.target.value }})}
       />
     </div>
   </div>

@@ -20,11 +20,11 @@ const Productfilter = () => {
           <h2 className="filter-heading">Filters</h2>
           <button className="clear-btn"onClick={()=>dispatch({ type: "RESET", payload: {} })}>Clear</button>
         </div>
-        <PriceRangeFilter sortBy={sortBy} dispatch={dispatch}/>
-        <SortByPriceFilter maxPrice={maxPrice} dispatch={dispatch}/>
+        <PriceRangeFilter maxPrice={maxPrice} dispatch={dispatch}/>
+        <SortByPriceFilter sortBy={sortBy} dispatch={dispatch}/>
         <CategoryFilter solidJacket={solidJacket} thinJacket={thinJacket} lightWeightJacket={lightWeightJacket} dispatch={dispatch}/>
-        <DiscountFilter productRating={productRating}  dispatch={dispatch}/>
-        <RatingFilter productDiscount={productDiscount} dispatch={dispatch}/>
+        <DiscountFilter productDiscount={productDiscount}  dispatch={dispatch}/>
+        <RatingFilter productRating={productRating} dispatch={dispatch}/>
       </div>
       </>
     );
