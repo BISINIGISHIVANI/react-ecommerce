@@ -52,7 +52,7 @@ export const products = [
     categories: "Bomber Light weight Jacket",
     rating: "4",
     price: "4699",
-    discount: "10%",
+    discount: "20%",
     image: newImg1 
   },
   {
