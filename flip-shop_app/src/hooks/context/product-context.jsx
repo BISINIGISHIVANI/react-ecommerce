@@ -2,8 +2,8 @@ import { createContext, useContext, useReducer } from "react";
 import { FilterReducer } from "../reducer/filter-reducer";
 const ProductContext = createContext({
   sortBy: null,
-  maxPrice: 1000,
-  productRating:null,
+  maxPrice: 10000,
+  productRating:1,
   productDiscount:null,
   solidJacket:false,
   thinJacket:false,
@@ -15,7 +15,8 @@ const FilterProvider = ({ children }) => {
     sortBy: null,
     maxPrice: 10000,
     productRating:null,
-    productDiscount:null,solidJacket:false,
+    productDiscount:null,
+    solidJacket:false,
     thinJacket:false,
     lightWeightJacket:false
   });

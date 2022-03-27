@@ -16,9 +16,9 @@ export default function ProductWithFilter() {
     solidJacket,
     thinJacket,
     lightWeightJacket}=productState;
-  const sortedData = GetSortedBy(productData,{sortBy});
+  const sortedData = GetSortedBy(productData,sortBy);
   const categoryData=CategoryFilterData(sortedData,{solidJacket,thinJacket,lightWeightJacket})
-  const filterData = GetFilteredData(categoryData,{maxPrice,productRating,productDiscount});
+  const filteredData = GetFilteredData(categoryData,{maxPrice,productRating,productDiscount});
   
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function ProductWithFilter() {
           <h2>our products</h2>
         </div>
         <div className="products-middle">
-          {filterData.map(({
+          {filteredData.map(({
              _id,
              image,
              name,

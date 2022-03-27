@@ -15,6 +15,6 @@ const CategoryFilterData=(data,{solidJacket,thinJacket,lightWeightJacket})=>{
     const getData=data.filter((item)=>item.categories==="Bomber Light weight Jacket");
     filterData.push(...getData);
   }  
-
+  return filterData;
 }
 export {CategoryFilterData}
