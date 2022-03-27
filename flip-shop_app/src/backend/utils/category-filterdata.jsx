@@ -1,19 +1,19 @@
-const CategoryFilterData=(productsList,{solidJacket,thinJacket,lightWeightJacket})=>{
+const CategoryFilterData=(data,{solidJacket,thinJacket,lightWeightJacket})=>{
   if(!solidJacket&& !thinJacket&&lightWeightJacket){
-      return productsList
+      return data
   }
-  const getFilteredData=[];
+  const filterData=[];
   if(solidJacket){
-      const getData=productsList.filter((item)=>item.categories==="Bomber Solid Jacket");
-      getFilteredData.push(...getData);
+      const getData=data.filter((item)=>item.categories==="Bomber Solid Jacket");
+      filterData.push(...getData);
   }
   if(thinJacket){
-    const getData=productsList.filter((item)=>item.categories==="Bomber Thin Jacket");
-    getFilteredData.push(...getData);
+    const getData=data.filter((item)=>item.categories==="Bomber Thin Jacket");
+    filterData.push(...getData);
    }
   if(lightWeightJacket){
-    const getData=productsList.filter((item)=>item.categories==="Bomber Light weight Jacket");
-    getFilteredData.push(...getData);
+    const getData=data.filter((item)=>item.categories==="Bomber Light weight Jacket");
+    filterData.push(...getData);
   }  
 
 }
