@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { ProductsList } from "./components/product-all";
 import { Productfilter } from "./components/product-filter";
-import { GetFilteredData, GetSortedBy,CategoryFilterData } from "../../backend/utils/index";
+import { GetFilteredData, GetSortedBy,CategoryFilterData } from "../../hooks/utilis/index";
 import { useFillter } from "../../hooks/context/product-context";
 
 export default function ProductWithFilter() {
