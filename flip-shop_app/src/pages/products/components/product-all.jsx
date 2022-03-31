@@ -1,11 +1,14 @@
 const ProductsList = ({
+    productId,
     productFilterImg,
     imgAlt,
     title,
     productSubtitle,
     starRating,
     productPrice,
-    productDiscount
+    productDiscount,
+    checkWishlist,
+    checkForWishlistHandler
   }) => {
     return (
       <article className="single-product">
@@ -15,8 +18,9 @@ const ProductsList = ({
             <i className="fas fa-shopping-cart"></i>
             add to bag
           </button>
-          <button className="bag-wishlist">
-            <i className="fa-solid fa-heart"></i>ADD To wishlist
+          <button className="bag-wishlist" onClick={()=>checkForWishlistHandler(productId)}>
+            <i className="fa-solid fa-heart"></i>
+            {checkWishlist(productId) === "Remove From wishlist" ?"Add to Wishlist": "Remove from wishlist"}
           </button>
         </div>
         <h3>{title}</h3>

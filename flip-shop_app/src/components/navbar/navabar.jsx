@@ -1,6 +1,13 @@
 import "./navabar.css";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
+import { useWishlist } from "../../hooks/context/wishlist-context";
 export default function NavBar() {
+  const navigate = useNavigate();
+  const { wishlistState, wishlistDispatch } = useWishlist();
+  const wishlist = wishlistState.wishlist;
+  const wishlistHandler=()=>{
+    navigate("/wishlist")
+  }
   return (
     <nav className="docnav-bar flex-center">
       <div className="flex-center nav-title nav-rflex margin-edge-items cursor-pointer">
@@ -26,16 +33,14 @@ export default function NavBar() {
       </div>
       </Link>
       <div className="wish-list margin-edge-items flex-center">
-      <Link to="/wishlist">
-        <div className="wishlist-btn">
+        <div className="wishlist-btn"onClick={wishlistHandler}>
           <span className="nav-icon">
             <i className="fa-solid fa-heart"></i>
           </span>
           <div className="nav-wishlist-count wishlist-items">
-            <span>0</span>
+            {wishlist.length!==0 ?<span>{wishlist.length}</span>  : null}
           </div>
         </div>
-        </Link>
       </div>
       <div className="nav-cart-container  margin-edge-items">
         <div className="nav-cart-container  margin-edge-items">
@@ -43,7 +48,6 @@ export default function NavBar() {
           <Link to="/cart">
             <div
               className="cart-btn"
-              onClick="location.href='/component/cart-management/cart.html'"
             >
               <span className="nav-icon">
                 <i className="fa-brands fa-opencart"></i>
