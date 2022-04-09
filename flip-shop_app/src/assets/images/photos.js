@@ -19,6 +19,7 @@ import trendyImg7 from "../../assets/images/new-productImg/KASSUALLY-Women-Jacke
 import trendyImg8 from "../../assets/images/new-productImg/Leather-Retail-Women-Jackets.jpg";
 import trendyImg9 from "../../assets/images/new-productImg/Mast--Harbour-Women-Rose-Solid-Bomber-1.jpg";
 import trendyImg10 from "../../assets/images/new-productImg/trendy-1.jpg";
+import errorImg from "../images/webp/undraw_not_found_-60-pq.svg";
 
 export {
   heroImg1,
@@ -39,5 +40,6 @@ export {
   trendyImg7,
   trendyImg8,
   trendyImg9,
-  trendyImg10
+  trendyImg10,
+  errorImg
 };
