@@ -1,6 +1,23 @@
 import "./navabar.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../hooks/context/auth-context";
+import { useNavigate } from "react-router-dom";
 export default function NavBar() {
+  const navigate=useNavigate();
+const {authState,authDispatch}=useAuth()
+const authName=authState.user;
+const checkStatus=(authName)=>{
+  return authName ? "Logout":"Login";
+}
+const logoutHandler = () => {
+  navigate("/");
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  authDispatch({ type: "LOGOUT" })
+}
+const userHandler = async (type) => {
+  type === "Login" ? navigate("/login") : logoutHandler();
+}
   return (
     <nav className="docnav-bar flex-center">
       <div className="flex-center nav-title nav-rflex margin-edge-items cursor-pointer">
@@ -20,11 +37,14 @@ export default function NavBar() {
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
-      <Link to="/login">
       <div className="login-btn">
-        <button className="login-site cursor-pointer">Login</button>
+        <button 
+        onClick={()=>userHandler(checkStatus(authName))}
+        className="login-site cursor-pointer"
+        >
+          {checkStatus(authName)}
+        </button>
       </div>
-      </Link>
       <div className="wish-list margin-edge-items flex-center">
       <Link to="/wishlist">
         <div className="wishlist-btn">
