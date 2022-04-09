@@ -1,2 +1,2 @@
-export {CategoryFilterData}from './category-filterdata';
-export { GetFilteredData, GetSortedBy }from './product-filterdata';
+export {CategoryFilterData}from './product-utils/category-filterdata';
+export { GetFilteredData, GetSortedBy }from './product-utils/product-filterdata';

@@ -1,4 +1,4 @@
-import "../authentication.css";
+import "../../../authentication/authentication.css";
 import { Link } from "react-router-dom";
 export default function ForgotPage() {
   return (
@@ -9,14 +9,6 @@ export default function ForgotPage() {
           <div className="user-box">
             <input type="email" name="useremail" />
             <label>Email address </label>
-          </div>
-          <div className="user-box">
-            <input type="password" name="password" />
-            <label>Create Password</label>
-          </div>
-          <div className="user-box">
-            <input type="password" name="password" />
-            <label>Retype Password</label>
           </div>
           <div className="password-box">
             <button type="submit" className="login-submit">
