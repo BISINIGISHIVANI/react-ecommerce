@@ -67,7 +67,7 @@ export default function SignupPage() {
           <div className="user-box">
             <input 
             type="email"
-            name="gmail" 
+            name="email" 
             value={user.email}
             onChange={changeHandler}
             />

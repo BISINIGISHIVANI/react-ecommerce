@@ -49,7 +49,7 @@ export default function loginPage() {
       }
     }
     catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   return (
@@ -58,12 +58,10 @@ export default function loginPage() {
         <h2>Login</h2>
         <form>
           <div className="user-box">
-            <input 
-            type="email" 
-            name="useremail" 
-            placeholder="enter email"
-           value={user.email}
-           onChange={changeHandler}
+            <input type="email" 
+            name="email" 
+            value={user.email}
+            onChange={changeHandler}
             />
             <label>Email address </label>
           </div>
