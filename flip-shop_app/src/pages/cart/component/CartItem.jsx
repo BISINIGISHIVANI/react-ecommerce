@@ -4,7 +4,11 @@ const CartItem = ({
     CartTitle,
     CartSubtitle,
     cartPrice,
-    cartDiscount
+    cartDiscount,
+    cartId,
+    cartQuantity,
+    callremoveFromCartHandler,
+    callupdateCartHandler
   }) => (
     <>
       <div className="cart-item">
@@ -24,14 +28,22 @@ const CartItem = ({
             <span>{cartDiscount} off</span>
           </div>
           <div className="btn-yourcart">
-            <button className="remove-cart-btn">remove from cart</button>
+            <button className="remove-cart-btn"
+            onClick={()=>callremoveFromCartHandler(cartId)}
+            >remove from cart</button>
             <button className="move-wishlist-btn">move to wishlist</button>
           </div>
         </div>
         <div>
-          <span className="increment">+</span>
-          <p className="item-amount">1</p>
-          <span className="decrement">─</span>
+          <span 
+          className="increment"
+          onClick={()=>callupdateCartHandler(cartId,"increment")}
+          >+</span>
+          <p className="item-amount">{cartQuantity}</p>
+          <span 
+          className="decrement"
+          onClick={()=>cartQuantity <=1 ? callremoveFromCartHandler(cartId):callupdateCartHandler(cartId,"decrement")}
+          >─</span>
         </div>
       </div>
     </>

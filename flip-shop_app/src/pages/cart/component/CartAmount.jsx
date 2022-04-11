@@ -1,27 +1,26 @@
-const CartAmount = ({ numberItems }) => {
-    return (
+const CartAmount = ({ cartQuantity,cartPrice,cartDiscount,cartTotalPrice ,cartDelivaryCharge}) => {
+  return (
       <>
         <div className="price-data">
           <div>
-            <span>Price({numberItems} items)</span>
-            <span>Rs.4699</span>
+            <span>Price({cartQuantity} items)</span>
+            <span>Rs.{cartPrice}</span>
           </div>
           <div>
             <span>Disount</span>
-            <span>Rs.-1999</span>
+            <span>Rs.{cartDiscount}</span>
           </div>
           <div>
             <span>Delivery Charges</span>
-            <span>Rs.499</span>
+            <span>Rs.{cartDelivaryCharge}</span>
           </div>
         </div>
         <hr />
         <h3>
-          your total :Rs.<span className="cart-total">5198</span>
+          your total :Rs.<span className="cart-total">{cartTotalPrice}</span>
         </h3>
         <hr />
-        <p className="savings">you will save Rs.1999 on this order</p>
-        <button className="clear-cart banner-btn1">clear cart</button>
+        <p className="savings">you will save Rs.{cartDiscount} on this order</p>
         <button className="place-order banner-btn1">place-order</button>
       </>
     );

@@ -1,11 +1,12 @@
 import "./navabar.css";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../hooks/context/auth-context";
+import { useAuth,useCart } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const navigate=useNavigate();
-const {authState,authDispatch}=useAuth()
-const authName=authState.user;
+const {authState:{token,user},authDispatch}=useAuth();
+const {cartState:{cart},cartDispatch}=useCart();
+const authName=user;
 const checkStatus=(authName)=>{
   return authName ? "Logout":"Login";
 }
@@ -17,6 +18,12 @@ const logoutHandler = () => {
 }
 const userHandler = async (type) => {
   type === "Login" ? navigate("/login") : logoutHandler();
+}
+const routerHandler=(path)=>{
+  navigate(path);
+  if(!token){
+    alert("kindly login to your account")
+  }
 }
   return (
     <nav className="docnav-bar flex-center">
@@ -63,13 +70,13 @@ const userHandler = async (type) => {
           <Link to="/cart">
             <div
               className="cart-btn"
-              onClick="location.href='/component/cart-management/cart.html'"
+              onClick={()=>routerHandler("/cart")}
             >
               <span className="nav-icon">
                 <i className="fa-brands fa-opencart"></i>
               </span>
               <div className="nav-cart-count cart-items">
-                <span>0</span>
+                <span>{cart.length}</span>
               </div>
             </div>
             </Link>
