@@ -1,14 +1,35 @@
 import "./product-filter.css";
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { ProductsList } from "./components/product-all";
 import { Productfilter } from "./components/product-filter";
 import { GetFilteredData, GetSortedBy,CategoryFilterData } from "../../hooks/utilis/index";
 import { useFillter } from "../../hooks/context/product-context";
+import { useAuth,useCart } from "../../hooks";
+import { addToCartHandler } from "../../hooks/utilis/cart-utils/cart-util";
 
 export default function ProductWithFilter() {
+  const {authState:{token}}=useAuth();
+  const navigate=useNavigate();
+  const {cartState:{cart},cartDispatch}=useCart();
   const [productData, setProductData] = useState([]);
   const {productState} = useFillter();
+  const checkCartAction=(_id)=>{
+    const item=cart.find(item=>item._id===_id);
+    return item ? "GO TO CART":"ADD TO CART";
+  }
+  const callAddtocartHandler=(_id)=>{
+    if(token){
+      const product=productData.find(item=>item._id===_id);
+      addToCartHandler(product,cartDispatch,token)
+    }else{
+      navigate("/login")
+    }
+  }
+  const checkCartHandler=(_id)=>{
+    return checkCartAction(_id)==="ADD TO CART"?callAddtocartHandler(_id):navigate("/cart")
+  }
   const {sortBy,
     maxPrice,
     productRating,
@@ -57,6 +78,7 @@ export default function ProductWithFilter() {
         })=>(
           <ProductsList
             key={_id}
+            productId={_id}
             productFilterImg={image}
             imgAlt={"product"}
             title={name}
@@ -64,6 +86,8 @@ export default function ProductWithFilter() {
             starRating={rating}
             productPrice={price}
             productDiscount={discount}
+            checkCartAction={checkCartAction}
+            checkCartHandler={checkCartHandler}
           />
     ))}
         </div>
