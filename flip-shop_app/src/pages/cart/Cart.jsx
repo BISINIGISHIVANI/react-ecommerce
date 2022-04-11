@@ -40,7 +40,7 @@ export default function cart() {
     <div>
     {cart.length!== 0 ? (
       <div className="cart-container">
-      {cart.length !==0 ? (<h2>your cart({cart.length})</h2>):null}
+      {cart.length !==0 ? (<h2>your cart({cartQuantity})</h2>):null}
       <div className="cart">
         <div className="cart-content">
           {cart.map(({
