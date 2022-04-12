@@ -7,7 +7,6 @@ const PriceRangeFilter=({maxPrice,dispatch})=>{
         type="range"
         min="0"
         max="10000"
-        defaultValue="0"
         value={maxPrice}
         className="slider"
         onChange={(e) =>

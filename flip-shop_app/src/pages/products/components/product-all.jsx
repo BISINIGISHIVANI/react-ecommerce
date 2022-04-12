@@ -5,15 +5,20 @@ const ProductsList = ({
     productSubtitle,
     starRating,
     productPrice,
-    productDiscount
+    productDiscount,
+    productId,
+    checkCartAction,
+    checkCartHandler
   }) => {
     return (
       <article className="single-product">
         <div className="img-container">
           <img src={productFilterImg} alt={imgAlt} className="product-img" />
-          <button className="bag-btn">
+          <button className="bag-btn"
+          onClick={()=>checkCartHandler(productId)}
+          >
             <i className="fas fa-shopping-cart"></i>
-            add to bag
+            {checkCartAction(productId)}
           </button>
           <button className="bag-wishlist">
             <i className="fa-solid fa-heart"></i>ADD To wishlist
