@@ -8,7 +8,9 @@ const ProductsList = ({
     productDiscount,
     productId,
     checkCartAction,
-    checkCartHandler
+    checkCartHandler,
+    checkWishlistAction,
+    checkWishlistHandler
   }) => {
     return (
       <article className="single-product">
@@ -20,8 +22,11 @@ const ProductsList = ({
             <i className="fas fa-shopping-cart"></i>
             {checkCartAction(productId)}
           </button>
-          <button className="bag-wishlist">
-            <i className="fa-solid fa-heart"></i>ADD To wishlist
+          <button className="bag-wishlist"
+          onClick={()=>checkWishlistHandler(productId)}
+          >
+            <i className="fa-solid fa-heart"></i>
+            {checkWishlistAction(productId)}
           </button>
         </div>
         <h3>{title}</h3>
