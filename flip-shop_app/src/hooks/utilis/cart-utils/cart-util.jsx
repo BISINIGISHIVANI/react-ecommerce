@@ -1,5 +1,5 @@
 import { addToCartService,updateCartService,removeFromCartService } from "../../../services/cart-services/cart.service";
-
+import {addToWishlistHandler} from "../wishlist-util/wishlist-utl";
 export const addToCartHandler = async (product, cartDispatch, token) => {
     try {
         const response = await addToCartService(product, token);
@@ -49,4 +49,11 @@ export const removeFromCartHandler = async (_id, token, cartDispatch) => {
         alert(error);
     }
 }
-
+export const moveToWishlistHandler=async(_id, product, wishlistDispatch, token, cartDispatch)=>{
+    try {
+        addToWishlistHandler(product,wishlistDispatch,token);
+        removeFromCartHandler(_id,token,cartDispatch)
+    } catch (error) {
+        alert(error)
+    }
+}

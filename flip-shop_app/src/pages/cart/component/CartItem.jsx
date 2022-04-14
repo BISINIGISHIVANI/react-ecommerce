@@ -8,7 +8,8 @@ const CartItem = ({
     cartId,
     cartQuantity,
     callremoveFromCartHandler,
-    callupdateCartHandler
+    callupdateCartHandler,
+    callMoveToWishlistHandler
   }) => (
     <>
       <div className="cart-item">
@@ -31,7 +32,9 @@ const CartItem = ({
             <button className="remove-cart-btn"
             onClick={()=>callremoveFromCartHandler(cartId)}
             >remove from cart</button>
-            <button className="move-wishlist-btn">move to wishlist</button>
+            <button className="move-wishlist-btn"
+            onClick={()=>callMoveToWishlistHandler(cartId)}
+            >move to wishlist</button>
           </div>
         </div>
         <div>

@@ -3,23 +3,26 @@ import "./cart.css";
 import { Link } from "react-router-dom";
 import { CartAmount } from "./component/CartAmount";
 import { CartItem } from "./component/CartItem";
-import { useAuth } from "../../hooks";
-import { useCart } from "../../hooks/context/cart-context";
+import { useAuth,useCart,useWishList } from "../../hooks";
 import {getCartItemService} from "../../services/cart-services/cart.service";
-import { updateCartHandler,removeFromCartHandler,getCartBill } from "../../hooks/utilis/cart-utils/cart-util";
+import { updateCartHandler,removeFromCartHandler,getCartBill,moveToWishlistHandler } from "../../hooks/utilis/index";
 export default function cart() {
   const {authState}=useAuth();
   const {token}=authState;
   const {cartState,cartDispatch}=useCart();
   const {cart}=cartState;
+  const {wishlistDispatch}=useWishList();
   const { cartQuantity,itemsPrice, totalPrice } = getCartBill(cart);
-
   const callUpdateCartHandler = (_id, actionType) => {
     updateCartHandler(_id, actionType, token, cartDispatch);
   }
 
   const callRemoveFromCartHandler = (_id) => {
     removeFromCartHandler(_id, token, cartDispatch)
+  }
+  const callMoveToWishlistHandler=(_id)=>{
+    const item = cart.find(item => item._id === _id);
+    moveToWishlistHandler(_id, item, wishlistDispatch, token, cartDispatch);
   }
   const getCartItems = async () => {
     try {
@@ -63,6 +66,7 @@ export default function cart() {
           cartQuantity={qty}
           callupdateCartHandler={callUpdateCartHandler}
           callremoveFromCartHandler={callRemoveFromCartHandler}
+          callMoveToWishlistHandler={callMoveToWishlistHandler}
           />
           ))}
         </div>
