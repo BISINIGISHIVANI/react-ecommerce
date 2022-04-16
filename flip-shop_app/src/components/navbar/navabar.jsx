@@ -1,11 +1,12 @@
 import "./navabar.css";
 import { Link } from "react-router-dom";
-import { useAuth,useCart } from "../../hooks";
+import { useAuth,useCart,useWishList } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const navigate=useNavigate();
 const {authState:{token,user},authDispatch}=useAuth();
 const {cartState:{cart},cartDispatch}=useCart();
+const {wishlistState:{wishlist},wishlistDispatch}=useWishList();
 const authName=user;
 const checkStatus=(authName)=>{
   return authName ? "Logout":"Login";
@@ -54,12 +55,14 @@ const routerHandler=(path)=>{
       </div>
       <div className="wish-list margin-edge-items flex-center">
       <Link to="/wishlist">
-        <div className="wishlist-btn">
+        <div className="wishlist-btn"
+        onClick={()=>routerHandler("/wishlist")}
+        >
           <span className="nav-icon">
             <i className="fa-solid fa-heart"></i>
           </span>
           <div className="nav-wishlist-count wishlist-items">
-            <span>0</span>
+            <span>{wishlist.length}</span>
           </div>
         </div>
         </Link>

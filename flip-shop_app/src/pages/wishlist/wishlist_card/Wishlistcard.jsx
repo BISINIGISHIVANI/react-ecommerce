@@ -3,19 +3,26 @@ const WishlistCard = ({
     imgAlt,
     title,
     description,
-    productPrice
+    productPrice,
+    productId,
+    callRemoveFromWishlistHandler,
+    callMoveToCartHandler
   }) => {
     return (
       <article className="product">
         <div className="img-container">
           <img src={productImg} alt={imgAlt} className="product-img" />
-          <button className="bag-wishlist">
+          <button className="bag-wishlist"
+          onClick={()=>callRemoveFromWishlistHandler(productId)}
+          >
             <i className="fa-solid fa-heart"></i>
             remove wishlist
           </button>
-          <button className="bag-btn">
+          <button className="bag-btn"
+          onClick={()=>callMoveToCartHandler(productId)}
+          >
             <i className="fas fa-shopping-cart"></i>
-            move to bag
+            move to cart
           </button>
         </div>
         <h3>{title}</h3>

@@ -1,3 +1,4 @@
 import { useAuth } from "./context/auth-context";
 import { useCart } from "./context/cart-context";
-export {useAuth,useCart}
+import {useWishList} from "./context/wishlist-context";
+export {useAuth,useCart,useWishList}

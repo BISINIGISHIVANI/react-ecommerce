@@ -6,15 +6,32 @@ import { ProductsList } from "./components/product-all";
 import { Productfilter } from "./components/product-filter";
 import { GetFilteredData, GetSortedBy,CategoryFilterData } from "../../hooks/utilis/index";
 import { useFillter } from "../../hooks/context/product-context";
-import { useAuth,useCart } from "../../hooks";
+import { useAuth,useCart,useWishList } from "../../hooks";
 import { addToCartHandler } from "../../hooks/utilis/cart-utils/cart-util";
+import {addToWishlistHandler} from "../../hooks/utilis/wishlist-util/wishlist-utl";
 
 export default function ProductWithFilter() {
   const {authState:{token}}=useAuth();
   const navigate=useNavigate();
   const {cartState:{cart},cartDispatch}=useCart();
+  const {wishlistState:{wishlist},wishlistDispatch}=useWishList()
   const [productData, setProductData] = useState([]);
   const {productState} = useFillter();
+  const checkWishlistAction=(_id)=>{
+    const item=wishlist.find(item=>item._id ===_id);
+    return item ? "GO TO WISHLIST":"ADD TO WISHLIST";
+  }
+  const callAddTowishlistHandler=(_id)=>{
+    if(token){
+      const product=productData.find(item=>item._id===_id);
+      addToWishlistHandler(product,wishlistDispatch,token)
+    }else{
+      navigate("/login")
+    }
+  }
+  const checkWishlistHandler=(_id)=>{
+    return checkWishlistAction(_id)==="ADD TO WISHLIST" ? callAddTowishlistHandler(_id):navigate("/wishlist")
+  }
   const checkCartAction=(_id)=>{
     const item=cart.find(item=>item._id===_id);
     return item ? "GO TO CART":"ADD TO CART";
@@ -88,6 +105,8 @@ export default function ProductWithFilter() {
             productDiscount={discount}
             checkCartAction={checkCartAction}
             checkCartHandler={checkCartHandler}
+            checkWishlistAction={checkWishlistAction}
+            checkWishlistHandler={checkWishlistHandler}
           />
     ))}
         </div>
