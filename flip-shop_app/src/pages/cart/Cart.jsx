@@ -1,5 +1,6 @@
 import React ,{ useEffect } from "react";
 import "./cart.css";
+import NavBar from "../../components/navbar/navabar";
 import { Link } from "react-router-dom";
 import { CartAmount } from "./component/CartAmount";
 import { CartItem } from "./component/CartItem";
@@ -9,9 +10,9 @@ import { updateCartHandler,removeFromCartHandler,getCartBill,moveToWishlistHandl
 export default function cart() {
   const {authState}=useAuth();
   const {token}=authState;
-  const {cartState,cartDispatch}=useCart();
-  const {cart}=cartState;
-  const {wishlistDispatch}=useWishList();
+  const {cartState:{cart},cartDispatch}=useCart();
+  const {wishlistState,wishlistDispatch}=useWishList();
+  const {wishlist}=wishlistState;
   const { cartQuantity,itemsPrice, totalPrice } = getCartBill(cart);
   const callUpdateCartHandler = (_id, actionType) => {
     updateCartHandler(_id, actionType, token, cartDispatch);
@@ -22,7 +23,11 @@ export default function cart() {
   }
   const callMoveToWishlistHandler=(_id)=>{
     const item = cart.find(item => item._id === _id);
-    moveToWishlistHandler(_id, item, wishlistDispatch, token, cartDispatch);
+    const item2=wishlist.find(item=>item._id===_id);
+    if(item._id !==item2._id){
+      moveToWishlistHandler(_id, item, wishlistDispatch, token, cartDispatch,wishlistState);
+    }
+    removeFromCartHandler(_id,token,cartDispatch)
   }
   const getCartItems = async () => {
     try {
@@ -40,6 +45,8 @@ export default function cart() {
   useEffect(() => getCartItems(), []);
 
   return (
+    <>
+    <NavBar/>
     <div>
     {cart.length!== 0 ? (
       <div className="cart-container">
@@ -94,5 +101,6 @@ export default function cart() {
     </div>
     ) }
    </div>
+   </>
   );
 }
