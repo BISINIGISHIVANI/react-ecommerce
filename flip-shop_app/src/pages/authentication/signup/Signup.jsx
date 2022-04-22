@@ -1,5 +1,6 @@
 import "./signup.css";
 import { Link } from "react-router-dom";
+import NavBar from "../../../components/navbar/navabar";
 import { useAuth } from "../../../hooks/context/auth-context";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -17,8 +18,7 @@ export default function SignupPage() {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value })
   }
-  const SignUpHandler=async (event) => {
-      event.preventDefault();
+  const SignUpHandler=async () => {
       try {
         const response = await axios.post("/api/auth/signup", user);
         if (response.status === 201) {
@@ -40,7 +40,25 @@ export default function SignupPage() {
         console.log(error);
       }
   }
+  const checkInputsAreNotEmpty=(user)=>{
+    for (let key in user) {
+        if (!Boolean(user[key])) {
+          return false;
+        }
+      }
+  return true;
+}
+const submitHandler=(e)=>{
+    e.preventDefault();
+    if(!checkInputsAreNotEmpty(user)){
+        alert("feild are not empty")
+    }else{
+        SignUpHandler(user,authDispatch,navigate)
+    }
+}
   return (
+    <>
+    <NavBar/>
     <div className="loginbox-align">
       <div className="login-box">
         <h2>SignUp</h2>
@@ -90,7 +108,7 @@ export default function SignupPage() {
           <button 
           type="submit" 
           className="signup-btn"
-          onClick={SignUpHandler}
+          onClick={submitHandler}
           >
             SignUp
           </button>
@@ -100,5 +118,6 @@ export default function SignupPage() {
         </form>
       </div>
     </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import "../authentication.css";
 import { Link } from "react-router-dom";
+import NavBar from "../../../components/navbar/navabar";
 import { useAuth } from "../../../hooks/context/auth-context";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
@@ -25,8 +26,7 @@ export default function loginPage() {
     event.preventDefault();
     setUser(guestUser);
   }
-  const loginHandler = async (event) => {
-    event.preventDefault();
+  const loginHandler = async () => {
     try {
       const response = await axios.post("/api/auth/login", user);
       if (response.status === 200) {
@@ -52,7 +52,25 @@ export default function loginPage() {
       console.error(error);
     }
   }
+  const checkInputsAreNotEmpty=(user)=>{
+    for (let key in user) {
+        if (!Boolean(user[key])) {
+          return false;
+        }
+      }
+  return true;
+}
+const submitHandler=(e)=>{
+    e.preventDefault();
+    if(!checkInputsAreNotEmpty(user)){
+        alert("feild are not empty")
+    }else{
+        loginHandler(user,authDispatch,navigate)
+    }
+}
   return (
+    <>
+    <NavBar/>
     <div className="loginbox-align">
       <div className="login-box">
         <h2>Login</h2>
@@ -96,7 +114,7 @@ export default function loginPage() {
             <button 
             type="submit" 
             className="login-submit"
-            onClick={loginHandler}
+            onClick={submitHandler}
             >
               Login
             </button>
@@ -107,5 +125,6 @@ export default function loginPage() {
         </form>
       </div>
     </div>
+    </>
   );
 }
