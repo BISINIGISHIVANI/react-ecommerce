@@ -6,11 +6,12 @@ const FilterProvider = ({ children }) => {
   const [productState,dispatch] = useReducer(FilterReducer, {
     sortBy: null,
     maxPrice: 10000,
-    productRating:1,
-    productDiscount:"20%",
+    productRating:"",
+    productDiscount:"",
     solidJacket:false,
     thinJacket:false,
-    lightWeightJacket:false
+    lightWeightJacket:false,
+    searchByName:"",
   });
   return (
     <ProductContext.Provider value={{productState,dispatch}}>
