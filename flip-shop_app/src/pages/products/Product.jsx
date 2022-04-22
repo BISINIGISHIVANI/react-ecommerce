@@ -9,6 +9,7 @@ import { useFillter } from "../../hooks/context/product-context";
 import { useAuth,useCart,useWishList } from "../../hooks";
 import { addToCartHandler } from "../../hooks/utilis/cart-utils/cart-util";
 import {addToWishlistHandler} from "../../hooks/utilis/wishlist-util/wishlist-utl";
+import NavBar from "../../components/navbar/navabar";
 
 export default function ProductWithFilter() {
   const {authState:{token}}=useAuth();
@@ -17,6 +18,7 @@ export default function ProductWithFilter() {
   const {wishlistState:{wishlist},wishlistDispatch}=useWishList()
   const [productData, setProductData] = useState([]);
   const {productState} = useFillter();
+  const [searchByName,setSearchByName]=useState("");
   const checkWishlistAction=(_id)=>{
     const item=wishlist.find(item=>item._id ===_id);
     return item ? "GO TO WISHLIST":"ADD TO WISHLIST";
@@ -56,7 +58,7 @@ export default function ProductWithFilter() {
     lightWeightJacket}=productState;
   const sortedData = GetSortedBy(productData,sortBy);
   const categoryData=CategoryFilterData(sortedData,{solidJacket,thinJacket,lightWeightJacket})
-  const filteredData = GetFilteredData(categoryData,{maxPrice,productRating,productDiscount});
+  const filteredData = GetFilteredData(categoryData,{maxPrice,productRating,productDiscount,searchByName});
   
 
   useEffect(() => {
@@ -75,7 +77,10 @@ export default function ProductWithFilter() {
     })();
   },[]);
   return (
+    <>
+    <NavBar searchByName={searchByName} setSearchByName={setSearchByName}/>
     <div className="filter-page">
+      
       <section className="filter-product-container">
         <Productfilter />
       </section>
@@ -112,5 +117,6 @@ export default function ProductWithFilter() {
         </div>
       </section>
     </div>
+    </>
   );
 }
