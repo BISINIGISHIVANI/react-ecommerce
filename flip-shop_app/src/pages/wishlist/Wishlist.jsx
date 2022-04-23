@@ -1,5 +1,6 @@
 import React,{useEffect} from "react";
 import "./wishlist.css";
+import NavBar from "../../components/navbar/navabar";
 import { WishlistCard } from "./wishlist_card/Wishlistcard";
 import { useAuth,useCart,useWishList } from "../../hooks";
 import { moveToCartandler,getWishlistItemsHandler,removeFromWishlistHandler } from "../../hooks/utilis";
@@ -13,12 +14,13 @@ export default function Wishshlist() {
     removeFromWishlistHandler(_id,token,wishlistDispatch)
   }
   const callMoveToCartHandler=(_id)=>{
-    const item = wishlist.find(item => item._id === _id);
-    moveToCartandler(_id, item, token, cartState, cartDispatch);
-    removeFromWishlistHandler(_id, token, wishlistDispatch);
+    const item = wishlist.find(item => item._id === _id )
+    moveToCartandler(_id, item, token, cartState, cartDispatch)
   }
   useEffect(() =>getWishlistItemsHandler(token,wishlistDispatch),[]);
   return (
+    <>
+    <NavBar />
     <section className="products">
       <div className="section-title">
         <h2>My WishList ({wishlist.length})</h2>
@@ -32,6 +34,7 @@ export default function Wishshlist() {
             price,
         })=>(
           <WishlistCard
+          className={`${wishlist.length===1 ? "product1" : "product"}`}
           key={_id}
           productId={_id}
           productImg={image}
@@ -45,5 +48,6 @@ export default function Wishshlist() {
         ))}
         </div>
     </section>
+    </>
   );
 }

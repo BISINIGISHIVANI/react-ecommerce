@@ -1,5 +1,6 @@
 import React from "react";
 import "./landing-page.css";
+import NavBar from "../../components/navbar/navabar";
 import heroImg1 from "../../assets/images/img-1/hero.jpg";
 import productImg1 from "../../assets/images/img-1/product-1.webp";
 import productImg2 from "../../assets/images/img-1/product-2.webp";
@@ -10,6 +11,7 @@ import { Link } from "react-router-dom";
 export default function landingPage() {
   return (
     <>
+      <NavBar/>
       <header className="hero">
         <div
           style={{

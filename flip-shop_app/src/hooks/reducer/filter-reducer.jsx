@@ -14,12 +14,14 @@ export const FilterReducer = (productState, action) => {
         return {...productState,thinJacket:action.payload};
       case "CATEGORY_LIGHTWEIGHT":
         return {...productState,lightWeightJacket:action.payload};
+      case "SEARCH_PRODUCTS":
+        return {...productState,searchByName:action.payload}
       case "RESET":
         return {
           sortBy:null,
           maxPrice:10000,
-          productRating:1,
-          productDiscount:"20%",
+          productRating:"",
+          productDiscount:"",
           solidJacket:false,
           thinJacket:false,
           lightWeightJacket:false

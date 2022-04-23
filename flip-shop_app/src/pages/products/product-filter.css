@@ -94,7 +94,6 @@ body {
 .img-container:hover .product-img {
   opacity: 0.5;
 }
-
 .single-product h3 {
   text-transform: capitalize;
   font-size: 1.1rem;
@@ -206,4 +205,5 @@ body {
     max-width: 270px;
   }
 }
+
 

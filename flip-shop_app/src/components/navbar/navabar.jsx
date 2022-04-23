@@ -1,15 +1,21 @@
 import "./navabar.css";
-import { Link } from "react-router-dom";
-import { useAuth,useCart,useWishList } from "../../hooks";
-import { useNavigate } from "react-router-dom";
-export default function NavBar() {
+import { Link,useNavigate,useLocation } from "react-router-dom";
+import { useAuth,useCart,useWishList ,useFillter} from "../../hooks";
+export default function NavBar(search) {
+  const {searchByName,setSearchByName}=search;
   const navigate=useNavigate();
+  const location=useLocation();
 const {authState:{token,user},authDispatch}=useAuth();
 const {cartState:{cart},cartDispatch}=useCart();
 const {wishlistState:{wishlist},wishlistDispatch}=useWishList();
+const {dispatch}=useFillter();
 const authName=user;
 const checkStatus=(authName)=>{
   return authName ? "Logout":"Login";
+}
+const searchProduct=(e)=>{
+  dispatch({type:"RESET",payload:{}})
+  setSearchByName(e.target.value)
 }
 const logoutHandler = () => {
   navigate("/");
@@ -35,24 +41,21 @@ const routerHandler=(path)=>{
         </h1>
         </Link>
       </div>
-      <div className="flex-center">
+      {location.pathname==="/products" ? (
+        <div className="flex-center">
         <input
           type="search"
           placeholder="search here..."
           className="border-searchbox search-input"
+          value={searchByName}
+          onChange={searchProduct}
         />
         <button className="search-go border-searchbox cursor-pointer">
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
-      <div className="login-btn">
-        <button 
-        onClick={()=>userHandler(checkStatus(authName))}
-        className="login-site cursor-pointer"
-        >
-          {checkStatus(authName)}
-        </button>
-      </div>
+      ):null}
+      
       <div className="wish-list margin-edge-items flex-center">
       <Link to="/wishlist">
         <div className="wishlist-btn"
@@ -86,6 +89,14 @@ const routerHandler=(path)=>{
             <span className="cart-name">Cart</span>
           </div>
         </div>
+      </div>
+      <div className="login-btn">
+        <button 
+        onClick={()=>userHandler(checkStatus(authName))}
+        className="login-site cursor-pointer"
+        >
+          {checkStatus(authName)}
+        </button>
       </div>
     </nav>
   );

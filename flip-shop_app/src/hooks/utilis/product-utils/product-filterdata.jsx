@@ -9,12 +9,13 @@ const GetSortedBy = (data, sortBy) => {
   };
   const GetFilteredData = (
     data,
-    { maxPrice, productRating,productDiscount }
+    { maxPrice, productRating,productDiscount,searchByName }
   ) => {
     return data
       .filter((product) => product["price"] <= maxPrice)
       .filter((product) => product["rating"] >= productRating)
-      .filter((product)=>product["discount"] >=productDiscount);
+      .filter((product)=>product["discount"] >=productDiscount)
+      .filter((product)=>product["name"].toLowerCase().includes(searchByName.toLowerCase()));
   };
   
   export { GetFilteredData, GetSortedBy };
