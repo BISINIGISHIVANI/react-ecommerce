@@ -1,4 +1,5 @@
 const WishlistCard = ({
+    className,
     productImg,
     imgAlt,
     title,
@@ -9,7 +10,7 @@ const WishlistCard = ({
     callMoveToCartHandler
   }) => {
     return (
-      <article className="product">
+      <article className={className}>
         <div className="img-container">
           <img src={productImg} alt={imgAlt} className="product-img" />
           <button className="bag-wishlist"

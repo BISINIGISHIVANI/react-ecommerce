@@ -34,6 +34,7 @@ export default function Wishshlist() {
             price,
         })=>(
           <WishlistCard
+          className={`${wishlist.length===1 ? "product1" : "product"}`}
           key={_id}
           productId={_id}
           productImg={image}
