@@ -1,5 +1,6 @@
 import "../authentication.css";
 import { Link } from "react-router-dom";
+import { toast } from 'material-react-toastify';
 import NavBar from "../../../components/navbar/navabar";
 import { useAuth } from "../../../hooks/context/auth-context";
 import {useNavigate} from "react-router-dom";
@@ -35,21 +36,21 @@ export default function loginPage() {
         localStorage.setItem("user", JSON.stringify(response.data.foundUser));
 
         authDispatch({ type: "LOGIN", payload: { user: response.data.foundUser, token: response.data.encodedToken } })
-
         navigate("/");
       }
       else if (response.status === 404) {
-        alert("Email not found");
+        toast.info("Email not found");
       }
       else if (response.status === 401) {
-        alert("Wrong Password");
+        toast.warn("Wrong Password");
       }
       else if (response.status === 500) {
-        alert("Server Error");
+        toast.error("Server Error");
       }
+      toast.success("successfully logged in")
     }
     catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   }
   const checkInputsAreNotEmpty=(user)=>{
@@ -63,7 +64,7 @@ export default function loginPage() {
 const submitHandler=(e)=>{
     e.preventDefault();
     if(!checkInputsAreNotEmpty(user)){
-        alert("feild are not empty")
+        toast.warn("feild are not empty")
     }else{
         loginHandler(user,authDispatch,navigate)
     }

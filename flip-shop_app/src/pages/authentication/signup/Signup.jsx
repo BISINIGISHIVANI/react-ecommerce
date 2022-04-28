@@ -5,6 +5,7 @@ import { useAuth } from "../../../hooks/context/auth-context";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { toast } from "material-react-toastify";
 export default function SignupPage() {
   const navigate=useNavigate();
   const {authDispatch}=useAuth();
@@ -20,9 +21,8 @@ export default function SignupPage() {
   }
   const SignUpHandler=async () => {
       try {
-        const response = await axios.post("/api/auth/signup", user);
+        const response = await axios.post("/api/auth/signu", user);
         if (response.status === 201) {
-  
           localStorage.setItem("token", response.data.encodedToken);
           localStorage.setItem("user", JSON.stringify(response.data.createdUser));
   
@@ -30,14 +30,15 @@ export default function SignupPage() {
           navigate("/");
         }
         else if (response.status === 422) {
-          alert("account alerady exists");
+          toast.info("account already exists");
         }
         else if (response.status === 500) {
-          alert("Server Error");
+          toast.error("Server Error");
         }
+        toast.success("successfully signup..")
       }
       catch (error) {
-        console.log(error);
+        toast.error(error);
       }
   }
   const checkInputsAreNotEmpty=(user)=>{
@@ -51,7 +52,7 @@ export default function SignupPage() {
 const submitHandler=(e)=>{
     e.preventDefault();
     if(!checkInputsAreNotEmpty(user)){
-        alert("feild are not empty")
+        toast.warn("feild are not empty")
     }else{
         SignUpHandler(user,authDispatch,navigate)
     }
