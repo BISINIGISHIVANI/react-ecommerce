@@ -4,7 +4,6 @@
     flex-wrap: wrap;
     background: var(--mainWhite);
     z-index: 3;
-    background: rgb(231, 226, 221);
     padding: 1.5rem;
   }
   .clear-cart {
@@ -25,7 +24,6 @@
     margin: 1.5rem 0;
   }
   .cart-item img {
-    width: 15rem;
     height: 15rem;
   }
   .cart-item h4 {
@@ -78,12 +76,15 @@
   /*---------- End of Cart Item -------------------- */
   
   .cart-footer {
-    border: 1px solid var(--primaryColor);
-    border-radius: 2rem;
+    height:fit-content;
     margin-top: 2rem;
     margin-left: 2rem;
     letter-spacing: var(--mainSpacing);
     text-align: center;
+  }
+  .cart-footer,.cart-content{
+    border: 1px solid var(--primaryColor);
+    border-radius: 2rem;
     padding: 1rem;
   }
   .cart-footer h3 {

@@ -9,7 +9,8 @@ import { useFillter } from "../../hooks/context/product-context";
 import { useAuth,useCart,useWishList } from "../../hooks";
 import { addToCartHandler } from "../../hooks/utilis/cart-utils/cart-util";
 import {addToWishlistHandler} from "../../hooks/utilis/wishlist-util/wishlist-utl";
-import NavBar from "../../components/navbar/navabar";
+import {Loader, Navbar } from "../../components/index"
+import { toast } from 'material-react-toastify';
 
 export default function ProductWithFilter() {
   const {authState:{token}}=useAuth();
@@ -18,6 +19,7 @@ export default function ProductWithFilter() {
   const {wishlistState:{wishlist},wishlistDispatch}=useWishList()
   const [productData, setProductData] = useState([]);
   const {productState} = useFillter();
+  const [loader,setLoader]=useState(true)
   const [searchByName,setSearchByName]=useState("");
   const checkWishlistAction=(_id)=>{
     const item=wishlist.find(item=>item._id ===_id);
@@ -26,9 +28,10 @@ export default function ProductWithFilter() {
   const callAddTowishlistHandler=(_id)=>{
     if(token){
       const product=productData.find(item=>item._id===_id);
-      addToWishlistHandler(product,wishlistDispatch,token)
+      addToWishlistHandler(product,wishlistDispatch,token);
     }else{
-      navigate("/login")
+      navigate("/login");
+      toast.dark("kindly login to add wishlist item")
     }
   }
   const checkWishlistHandler=(_id)=>{
@@ -43,7 +46,8 @@ export default function ProductWithFilter() {
       const product=productData.find(item=>item._id===_id);
       addToCartHandler(product,cartDispatch,token)
     }else{
-      navigate("/login")
+      navigate("/login");
+      toast.dark("kindly login to add item to wishlist")
     }
   }
   const checkCartHandler=(_id)=>{
@@ -59,28 +63,29 @@ export default function ProductWithFilter() {
   const sortedData = GetSortedBy(productData,sortBy);
   const categoryData=CategoryFilterData(sortedData,{solidJacket,thinJacket,lightWeightJacket})
   const filteredData = GetFilteredData(categoryData,{maxPrice,productRating,productDiscount,searchByName});
-  
 
   useEffect(() => {
     (async function () {
       try {
+        setLoader(true)
         const response=await axios.get("/api/products");
         if(response.status === 200){
           setProductData(response.data.products);
+          setLoader(false)
       }
       else{
-          throw new Error();
+          toast.error("fails to fetch products")
       }
       } catch (error) {
-        console.error(error);
+        toast.error(error);
       }
     })();
   },[]);
   return (
     <>
-    <NavBar searchByName={searchByName} setSearchByName={setSearchByName}/>
+    <Navbar searchByName={searchByName} setSearchByName={setSearchByName}/>
+    {loader ? <Loader/> :
     <div className="filter-page">
-      
       <section className="filter-product-container">
         <Productfilter />
       </section>
@@ -116,7 +121,7 @@ export default function ProductWithFilter() {
     ))}
         </div>
       </section>
-    </div>
+    </div>}
     </>
   );
 }
