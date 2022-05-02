@@ -14,7 +14,7 @@ export default function Wishshlist() {
     removeFromWishlistHandler(_id,token,wishlistDispatch)
   }
   const callMoveToCartHandler=(_id)=>{
-    const item = wishlist.find(item => item._id === _id )
+    const item = wishlist.find( item=> item._id === _id )
     moveToCartandler(_id, item, token, cartState, cartDispatch)
   }
   useEffect(() =>getWishlistItemsHandler(token,wishlistDispatch),[]);

@@ -1,17 +1,19 @@
 import { addToCartService,updateCartService,removeFromCartService } from "../../../services/cart-services/cart.service";
 import {addToWishlistHandler} from "../wishlist-util/wishlist-utl";
+import { toast } from 'material-react-toastify';
 export const addToCartHandler = async (product, cartDispatch, token) => {
     try {
         const response = await addToCartService(product, token);
         if (response.status === 201) {
             cartDispatch({ type: "ADD_TO_CART", payload: response.data.cart })
+            toast.info(`${product.name} added to cart`)
         }
         else {
             throw new Error();
         }
     }
     catch (error) {
-        alert(error);
+       toast.error(error);
     }
 }
 
@@ -46,14 +48,19 @@ export const removeFromCartHandler = async (_id, token, cartDispatch) => {
         }
     }
     catch (error) {
-        alert(error);
+        toast.error(error);
     }
 }
-export const moveToWishlistHandler=async(_id, product, wishlistDispatch, token, cartDispatch)=>{
+export const moveToWishlistHandler=async(_id, product, wishlistDispatch,token, cartDispatch,wishlist)=>{
     try {
-        addToWishlistHandler(product,wishlistDispatch,token);
-        removeFromCartHandler(_id,token,cartDispatch)
+        const wishlistItem=wishlist.find((item)=>item._id===_id)
+        if(!wishlistItem){
+            addToWishlistHandler(product,wishlistDispatch,token);
+            toast.info(`${product.name} added wishlist`)
+        }
+        removeFromCartHandler(_id,token,cartDispatch);
+        toast.info(`${product.name} already exist wishlist`)
     } catch (error) {
-        alert(error)
+        toast.error(error)
     }
 }

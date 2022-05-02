@@ -23,11 +23,7 @@ export default function cart() {
   }
   const callMoveToWishlistHandler=(_id)=>{
     const item = cart.find(item => item._id === _id);
-    const item2=wishlist.find(item=>item._id===_id);
-    if(item._id !==item2._id){
-      moveToWishlistHandler(_id, item, wishlistDispatch, token, cartDispatch,wishlistState);
-    }
-    removeFromCartHandler(_id,token,cartDispatch)
+    moveToWishlistHandler(_id, item, wishlistDispatch, token, cartDispatch,wishlist)
   }
   const getCartItems = async () => {
     try {
@@ -50,7 +46,7 @@ export default function cart() {
     <div>
     {cart.length!== 0 ? (
       <div className="cart-container">
-      {cart.length !==0 ? (<h2>your cart({cartQuantity})</h2>):null}
+      {cart.length !==0 ? (<h2>your cart({cart.length})</h2>):null}
       <div className="cart">
         <div className="cart-content">
           {cart.map(({

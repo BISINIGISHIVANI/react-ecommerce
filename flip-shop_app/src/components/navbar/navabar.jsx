@@ -1,6 +1,7 @@
 import "./navabar.css";
 import { Link,useNavigate,useLocation } from "react-router-dom";
 import { useAuth,useCart,useWishList ,useFillter} from "../../hooks";
+import { toast } from 'material-react-toastify';
 export default function NavBar(search) {
   const {searchByName,setSearchByName}=search;
   const navigate=useNavigate();
@@ -22,6 +23,7 @@ const logoutHandler = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
   authDispatch({ type: "LOGOUT" })
+  toast.info("your account logged out")
 }
 const userHandler = async (type) => {
   type === "Login" ? navigate("/login") : logoutHandler();
@@ -29,7 +31,7 @@ const userHandler = async (type) => {
 const routerHandler=(path)=>{
   navigate(path);
   if(!token){
-    alert("kindly login to your account")
+    toast.warn("kindly login to your account")
   }
 }
   return (

@@ -1,3 +1,4 @@
 import Navbar from "../components/navbar/navabar";
 import Footer from "../components/footer/footer";
-export { Navbar, Footer };
+import Loader from "./loader/loader";
+export { Navbar, Footer,Loader };
