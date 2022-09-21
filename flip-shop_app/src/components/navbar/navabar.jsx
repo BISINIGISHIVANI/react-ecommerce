@@ -1,39 +1,4 @@
 import "./navabar.css";
-<<<<<<< Updated upstream
-import { Link,useNavigate,useLocation } from "react-router-dom";
-import { useAuth,useCart,useWishList ,useFillter} from "../../hooks";
-export default function NavBar(search) {
-  const {searchByName,setSearchByName}=search;
-  const navigate=useNavigate();
-  const location=useLocation();
-const {authState:{token,user},authDispatch}=useAuth();
-const {cartState:{cart},cartDispatch}=useCart();
-const {wishlistState:{wishlist},wishlistDispatch}=useWishList();
-const {dispatch}=useFillter();
-const authName=user;
-const checkStatus=(authName)=>{
-  return authName ? "Logout":"Login";
-}
-const searchProduct=(e)=>{
-  dispatch({type:"RESET",payload:{}})
-  setSearchByName(e.target.value)
-}
-const logoutHandler = () => {
-  navigate("/");
-  localStorage.removeItem("token");
-  localStorage.removeItem("user");
-  authDispatch({ type: "LOGOUT" })
-}
-const userHandler = async (type) => {
-  type === "Login" ? navigate("/login") : logoutHandler();
-}
-const routerHandler=(path)=>{
-  navigate(path);
-  if(!token){
-    alert("kindly login to your account")
-  }
-}
-=======
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth, useCart, useWishList, useFillter } from "../../hooks";
 import { toast } from "material-react-toastify";
@@ -81,7 +46,6 @@ export default function NavBar(search) {
       toast.warn("kindly login to your account");
     }
   };
->>>>>>> Stashed changes
   return (
     <nav className="docnav-bar flex-center">
       <div className="flex-center nav-title nav-rflex margin-edge-items cursor-pointer">
