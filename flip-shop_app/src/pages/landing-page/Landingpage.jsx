@@ -7,17 +7,24 @@ import productImg2 from "../../assets/images/img-1/product-2.webp";
 import newImg1 from "../../assets/images/webp/ChkokkoWomenNavyBlueColourblockedSportyJacket1.webp";
 import newImg2 from "../../assets/images/webp/Leather-Retail-Women-Jackets-pink.webp";
 import newImg3 from "../../assets/images/webp/navy-green-jacket.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useFillter } from "../../hooks";
 export default function landingPage() {
+  const navigate=useNavigate()
+  const {dispatch} = useFillter();
+  const JacketHandler=()=>{
+    dispatch({type:"RESET",payload:{}})
+    navigate("/products")
+  }
   return (
     <>
-      <NavBar/>
+      <NavBar />
       <header className="hero">
         <div
           style={{
             backgroundImage: `url(${heroImg1})`,
             backgroundRepeat: "no-repeat",
-            backgroundPosition: "center/cover"
+            backgroundPosition: "center/cover",
           }}
           className="hero-slide1
          hero-slides"
@@ -25,7 +32,7 @@ export default function landingPage() {
           <div className="banner1">
             <h1 className="banner-title1">women wear collection</h1>
             <Link to="/products">
-            <button className="banner-btn1 cursor-pointer">shop now</button>
+              <button className="banner-btn1 cursor-pointer">shop now</button>
             </Link>
           </div>
         </div>
@@ -38,7 +45,11 @@ export default function landingPage() {
           <article className="product">
             <div className="img-container">
               <img src={productImg1} alt="product" className="product-img" />
-              <button className="bag-btn">Bomber Solid Jacket</button>
+              <button onClick={()=>{JacketHandler(),
+                dispatch({
+                  type: "CATEGORY_SOLID",
+                  payload: { solidJacket: true },
+                });}}className="bag-btn">Bomber Solid Jacket</button>
             </div>
             <h3>Mast & Harbour</h3>
             <h5>Women Blue Solid Bomber Jacket</h5>
@@ -47,7 +58,11 @@ export default function landingPage() {
           <article className="product">
             <div className="img-container">
               <img src={productImg2} alt="product" className="product-img" />
-              <button className="bag-btn">Bomber Thin Jacket</button>
+              <button onClick={()=>{JacketHandler(),
+                dispatch({
+                  type: "CATEGORY_THIN",
+                  payload: { thinJacket: true },
+                });}}className="bag-btn">Bomber Thin Jacket</button>
             </div>
             <h3>Mast & Harbour</h3>
             <h5>Women Blue Solid Bomber Jacket</h5>
@@ -56,7 +71,11 @@ export default function landingPage() {
           <article className="product">
             <div className="img-container">
               <img src={newImg1} alt="product" className="product-img" />
-              <button className="bag-btn">Bomber Light weight Jacket</button>
+              <button onClick={()=>{JacketHandler(),
+                dispatch({
+                  type: "CATEGORY_LIGHTWEIGHT",
+                  payload: { lightWeightJacket: true },
+                });}}className="bag-btn">Bomber Light weight Jacket</button>
             </div>
             <h3>Mast & Harbour</h3>
             <h5>Women Blue Solid Bomber Jacket</h5>

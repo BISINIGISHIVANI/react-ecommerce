@@ -14,8 +14,8 @@ export default function loginPage() {
     password:""
   })
   const guestUser = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshbalika",
+    email: "bharathKumar@gmail.com",
+    password: "bharath444",
   }
 
   const changeHandler = (event) => {

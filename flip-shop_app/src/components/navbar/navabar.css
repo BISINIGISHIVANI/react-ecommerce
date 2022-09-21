@@ -96,6 +96,25 @@
     color: var(--main-bg);
     border-radius: 0 10px 10px 0;
   }
+  .position-relative{
+    position: relative;
+  }
+  .user-more-box{
+    padding: 0.4rem 1rem;
+    display: inline-block;
+    position: absolute;
+    line-height: 1.5rem;
+    margin-left: -5rem;
+    background-color: var(--primaryColor);
+    border-radius: 0.5rem;
+  }
+  .triangle{
+    border-bottom: 1rem solid var(--primaryColor);
+    border-left: 0.6rem solid transparent;
+    border-right: 0.6rem solid transparent;
+    height: 0;
+    width: 0;
+  }
   @media screen and (max-width: 450px) {
     .docnav-bar {
       height: 9rem;
