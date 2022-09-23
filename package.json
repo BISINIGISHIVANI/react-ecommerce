@@ -33,5 +33,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce.\r ## Flybuy App\r   #### flybuy app is latest women jackect collection of ecommerce( online shop)[app-live url](https://react-ecommerce-git-dev-bisinigishivani.vercel.app/)",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BISINIGISHIVANI/react-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BISINIGISHIVANI/react-ecommerce/issues"
+  },
+  "homepage": "https://github.com/BISINIGISHIVANI/react-ecommerce#readme"
 }
