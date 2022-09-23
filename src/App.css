@@ -1,0 +1,20 @@
+:root {
+    --primaryColor: #1276a5;
+    --secondaryColor: #cf443f;
+    --mainWhite: #fff;
+    --mainBlack: #222;
+    --mainGrey: #ececec;
+    --mainSpacing: 0.1rem;
+    --main-bg: #043044;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Lato", sans-serif;
+  }
+  
