@@ -94,6 +94,7 @@
   color: var(--primaryColor);
   text-align: center;
 }
+
 /* filter  */
 .filter-page {
   display: flex;
@@ -152,11 +153,10 @@
 .docnav-bar {
   width: 100%;
 }
-
-.single-product.one-product{
-  width:25rem;
+.products-middle .single-product1{
+  width:30%;
+  text-align: center;
 }
-
 /* Media Queries */
 @media screen and (max-width: 800px) {
   .filter-container {

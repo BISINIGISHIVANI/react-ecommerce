@@ -98,7 +98,7 @@ export default function ProductWithFilter() {
             <h2>our products</h2>
           </div>
           <div className="products-middle">
-            {filteredData.map(
+            {filteredData.length>0 && filteredData.map(
               ({ _id, image, name, subtitle, rating, price, discount }) => (
                 <ProductsList
                   key={_id}
@@ -114,9 +114,11 @@ export default function ProductWithFilter() {
                   checkCartHandler={checkCartHandler}
                   checkWishlistAction={checkWishlistAction}
                   checkWishlistHandler={checkWishlistHandler}
+                  filteredData={filteredData}
                 />
               )
             )}
+            {filteredData.length===0 && <h2>No products Available</h2>}
           </div>
         </section>
       </div>

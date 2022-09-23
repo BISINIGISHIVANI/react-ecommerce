@@ -11,11 +11,12 @@ const ProductsList = ({
   checkCartAction,
   checkCartHandler,
   checkWishlistAction,
-  checkWishlistHandler
+  checkWishlistHandler,
+  filteredData
 }) => {
   const navigate = useNavigate();
   return (
-    <article className="single-product cursor-pointer">
+    <article className={`${filteredData.length===1?"single-product1 cursor-pointer":"single-product cursor-pointer"}`}>
       <div className="img-container">
         <img
           src={productFilterImg}
