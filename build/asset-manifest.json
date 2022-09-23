@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3c3f7195.chunk.css",
+    "main.js": "/static/js/main.ee789db5.chunk.js",
+    "main.js.map": "/static/js/main.ee789db5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.82b003ae.js",
+    "runtime-main.js.map": "/static/js/runtime-main.82b003ae.js.map",
+    "static/js/2.fc8ca8cb.chunk.js": "/static/js/2.fc8ca8cb.chunk.js",
+    "static/js/2.fc8ca8cb.chunk.js.map": "/static/js/2.fc8ca8cb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.3c3f7195.chunk.css.map": "/static/css/main.3c3f7195.chunk.css.map",
+    "static/js/2.fc8ca8cb.chunk.js.LICENSE.txt": "/static/js/2.fc8ca8cb.chunk.js.LICENSE.txt",
+    "static/media/-HRX-by-Hrithik-Roshan-Women-Jackets-.2e3120f3.jpg": "/static/media/-HRX-by-Hrithik-Roshan-Women-Jackets-.2e3120f3.jpg",
+    "static/media/ChkokkoWomenNavyBlueColourblockedSportyJacket1.5152f5aa.webp": "/static/media/ChkokkoWomenNavyBlueColourblockedSportyJacket1.5152f5aa.webp",
+    "static/media/DressBerry-Women-Jackets-blue.875c72ba.jpg": "/static/media/DressBerry-Women-Jackets-blue.875c72ba.jpg",
+    "static/media/DressBerry-Women-Jackets-gray.4f57fa5f.jpg": "/static/media/DressBerry-Women-Jackets-gray.4f57fa5f.jpg",
+    "static/media/HERENOW-Women-Navy-Blue-Solid-Regular-Trucker-Denim-Jacket-w-1.5d57ccde.jpg": "/static/media/HERENOW-Women-Navy-Blue-Solid-Regular-Trucker-Denim-Jacket-w-1.5d57ccde.jpg",
+    "static/media/Harvard-Women-Jackets-red.aa1749e3.jpg": "/static/media/Harvard-Women-Jackets-red.aa1749e3.jpg",
+    "static/media/Harvard-Women-Mustard--Grey-Colourblocked-Tailored-Jacket-.9bd7b6a6.jpg": "/static/media/Harvard-Women-Mustard--Grey-Colourblocked-Tailored-Jacket-.9bd7b6a6.jpg",
+    "static/media/KASSUALLY-Women-Jackets.b4869c58.jpg": "/static/media/KASSUALLY-Women-Jackets.b4869c58.jpg",
+    "static/media/Leather-Retail-Women-Jackets-pink.2e08f266.webp": "/static/media/Leather-Retail-Women-Jackets-pink.2e08f266.webp",
+    "static/media/Leather-Retail-Women-Jackets.abb013f1.jpg": "/static/media/Leather-Retail-Women-Jackets.abb013f1.jpg",
+    "static/media/Mast--Harbour-Women-Rose-Solid-Bomber-1.8857de2f.jpg": "/static/media/Mast--Harbour-Women-Rose-Solid-Bomber-1.8857de2f.jpg",
+    "static/media/Roadster-Women-Jackets-99.1d5afb28.webp": "/static/media/Roadster-Women-Jackets-99.1d5afb28.webp",
+    "static/media/landing-page.css": "/static/media/hero.e1a4255c.jpg",
+    "static/media/navy-green-jacket.cb9bb4e2.jpg": "/static/media/navy-green-jacket.cb9bb4e2.jpg",
+    "static/media/product-1.a5d46c38.webp": "/static/media/product-1.a5d46c38.webp",
+    "static/media/product-2.ec2f7fd9.webp": "/static/media/product-2.ec2f7fd9.webp",
+    "static/media/solid-black-choke.43e31e61.webp": "/static/media/solid-black-choke.43e31e61.webp",
+    "static/media/solid-red-choke.76c25403.webp": "/static/media/solid-red-choke.76c25403.webp",
+    "static/media/trendy-1.00443b39.jpg": "/static/media/trendy-1.00443b39.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.82b003ae.js",
+    "static/js/2.fc8ca8cb.chunk.js",
+    "static/css/main.3c3f7195.chunk.css",
+    "static/js/main.ee789db5.chunk.js"
+  ]
+}
